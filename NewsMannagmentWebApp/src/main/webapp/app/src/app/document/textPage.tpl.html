@@ -1,0 +1,44 @@
+<div class="row">
+ 	 <h1 class="page-header">
+      	{{doc.title}}
+ 	 </h1><br>
+ 	 <h4><b>Category: </b><i>{{doc.category}}</i></h4>
+	 <h4><b>Author: </b><i>{{doc.author}}</i></h4><br><br>
+ 	 <div class="row">
+	 	 <div class="col-xs-7">
+	 	 	<p>{{doc.text}}</p>
+	 	 </div>
+	 	 <div class="col-xs-5">
+		 	 <table border="0">
+		    	<tr class="spaceUnder" ng-repeat="name in imagesPath">
+		        	<td><img src ="images/{{name}}" style="width:304px;height:228px;"></td>
+		    	</tr>
+			</table>
+		</div>
+	</div>
+ 	 <br><br>
+ 	 <h3>More like this:</h3><br>
+ 	 <div ng-show="showMoreLikeThis" class="table-responsive">
+              <table class="table table-striped" style="border: 1px groove; border-color:#F7F7F7"">
+                   <thead>
+                     <tr style="background-color:#96C2EE">
+                        <td align="center"><b>Title</b></td>                                                  
+                        <td align="center"><b>Author</b></td>
+                        <td align="center"><b>Apstract</b></td>  
+                        <td></td>                                                         
+                     </tr>
+                   </thead>
+                   <tbody>
+                     <tr data-ng-repeat="doc in moreLikeThisDocs">
+                         <td align="center">{{doc.title}}</td>
+                         <td align="center">{{doc.author}}</td> 
+                         <td align="center">{{doc.apstract}}</td>
+                         <td align="center"><a ui-sref="textPage" ng-click="readText(doc)"><u>Read</u></a></td>                                                           
+                     </tr>                
+                   </tbody>
+             </table>                  
+  	 </div>
+  	 <div ng-show="!showMoreLikeThis">
+  	 	<p>{{message}}</p>
+  	 </div>
+</div>

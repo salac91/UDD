@@ -1,0 +1,26 @@
+<div class="row">
+ 	 <h1 class="page-header" align="center">
+         News Articles
+ 	 </h1><br><br>
+ 	 <div class="table-responsive">
+              <table class="table table-striped" style="border: 1px groove; border-color:#F7F7F7"">
+                   <thead>
+                     <tr style="background-color:#96C2EE">
+                        <td align="center"><b>Title</b></td>                                                  
+                        <td align="center"><b>Apstrakt</b></td> 
+                        <td></td>
+                        <td></td>                                            
+                     </tr>
+                   </thead>
+                   <tbody>
+                     <tr data-ng-repeat="doc in documents">
+                         <td align="center">{{doc.title}}</td>
+                         <td align="center">{{doc.apstract}}</td>
+                         <td align="center"><a ui-sref="textPage" ng-click="readText(doc)"><u>Read</u></a></td>
+                         <td ng-show="role == 'Editor'" align="center"><button type="submit" class="btn btn-primary" ng-click="removeDocument(doc.uid)">Remove</button></td>
+                         <td ng-show="role != 'Editor'"></td>
+                     </tr>                
+                   </tbody>
+             </table>                  
+  	 </div>
+</div>

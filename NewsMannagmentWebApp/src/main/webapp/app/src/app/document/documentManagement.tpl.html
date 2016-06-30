@@ -1,0 +1,80 @@
+<div class="top-content">	
+        <div class="inner-bg" style="background-color:#ffffff;">
+            <div class="container">
+				<div class="row">
+				 	 <h1 class="page-header" align="center">
+				      	My Unpublished News 
+				 	 </h1>				 	 
+				 	 	<h3>
+				      		Add new text here
+				 	 	</h3>
+				 	 	<div>
+					  	 	<form class="form-horizontal" enctype="multipart/form-data">
+					  	 		<div class="form-group row">
+					   				<input type="file" name="file" ng-model="document.fileInput" id="file" onchange="angular.element(this).scope().setFile(this)"/>
+					   			</div>
+					   			<div class="form-group row">
+					  				<button class="btn btn-primary" ng-click="uploadFile()" type="submit">Add text</button>
+					  			</div>
+							</form>
+						</div>
+				  	 <br>
+				 	 <div ng-show="showDocuments" class="table-responsive">
+				              <table class="table table-striped" style="border: 1px groove; border-color:#F7F7F7"">
+				                   <thead>
+				                     <tr style="background-color:#96C2EE"> 			                     	                 	
+				                        <td align="center"><b>Title</b></td>                                                  
+				                        <td align="center"><b>Apstrakt</b></td>
+				                        <td align="center"><b>File name</b></td>
+				                        <td></td>                    				                                                                 
+				                     </tr>
+				                   </thead>
+				                   <tbody>
+				                     <tr data-ng-repeat="doc in unpublishedDocs" data-ng-class="{'selected':$index == selectedRow}" data-ng-click="setClickedRow($index,doc)"> 				                     	            	 
+				                         <td align="center">{{doc.title}}</td>
+				                         <td align="center">{{doc.apstract}}</td>
+				                         <td align="center">{{doc.fileName}}</td>
+				                         <td align="center"><a ui-sref="textEdit" ng-click="editText(doc)"><u>Edit</u></a></td> 
+				                     </tr>                
+				                   </tbody> 
+				             </table>                  
+				  	 </div><br>
+				  	 
+				  	 <div ng-show="showDocuments">
+				  	 	<form class="form-horizontal">
+				  	 	<div class="form-group row">
+				       		<div class="col-xs-6">
+				  	 			<div> <label>Title:</label> <input class="form-control" type="text" ng-model="updatedDoc.title"/> </div>
+				  	 		</div>
+				  	 	</div>
+				  	 	<div class="form-group row">
+				       		<div class="col-xs-6">	
+				  	 			<div> <label>Apstract:</label> <input class="form-control" type="text" ng-model="updatedDoc.apstract"/> </div>
+				  	 		</div>
+				  	 	</div>
+				  	 	<div class="form-group row">
+				       		<div class="col-xs-6">
+				  	 			<div> <label>Category:</label> <input class="form-control" type="text" ng-model="updatedDoc.category"/> </div>
+				  	 		</div>
+				  	 	</div>
+				  	 	<div class="form-group row">
+				       		<div class="col-xs-6">
+				  	 			<div> <label>Keywords:</label> <input class="form-control" type="text" ng-model="updatedDoc.keyWords"/> </div>
+				  	 		</div>
+				  	 	</div>
+				  	 	<div class="form-group row">
+				       		<div class="col-xs-6">
+				  	 			<div> <label>Tags:</label><input class="form-control" type="text" ng-model="updatedDoc.tags"/> </div>
+				  	 		</div>
+				  	 	</div>
+				  	 	<div class="form-group row">
+				      	 <div class="col-xs-6">
+				  			<button class="btn btn-primary" ng-click="updateDocument()" type="submit">Update</button>
+				  		 </div>
+				  		</div>
+						</form>
+				  	 </div>			  	 
+				</div>
+			</div>
+	  </div>
+</div>

@@ -1,0 +1,248 @@
+<div class="top-content">	
+        <div class="inner-bg" style="background-color:#ffffff;">
+            <div class="container">
+				<div class="row">
+				  <h1 class="page-header" align="center">
+				      Search for News Articles
+				  </h1>
+				  
+				  <h2> Simple search </h2>
+				  <div class="row">
+				  	<form ng-submit="searchSimple()">
+				  	 <div class="col-xs-5">
+				  		<div class="input-group">        
+				          	<input class="form-control input-lg" type="text" placeholder="Please type a search query here" ng-model="simpleSearchQuery"/> 
+				          	<span class="input-group-btn">        	
+				        		<button class="btn btn-info btn-lg" type="submit" type="button"><i class="fa fa-search" aria-hidden="true"></i></button> 	
+				        	</span>	    
+				          </div>  
+				       </div>
+				 	</form>
+				  </div>
+				  
+				  <br><h2> Advanced search </h2>
+				  <div class="row">
+				     <form class="form-horizontal" role="form" ng-submit="searchAdvanced()">
+				  	
+				      <div class="form-group">
+				          <label class="control-label col-sm-1">Title</label>
+				          <div class="col-sm-2">
+				          	<input class="form-control" type="text" ng-model = "model.title"/>
+				          </div>
+				          <div class="col-sm-2">
+					          <select class="form-control" ng-model="model.titleSearchType">
+					          	<optgroup style="font-size:18px;" label="Search Type">
+					          		<option value="regular">Regular</option>
+					          		<option value="fuzzy">Fuzzy</option>
+					          		<option value="phrase">Phrase</option>
+					          		<option value="range">Range</option>
+					          		<option value="prefix">Prefix</option>
+					          	</optgroup>
+					          </select>
+					      </div>
+					      <div class="col-sm-2">
+					          <select class="form-control" ng-model="model.titleSearchCondition">
+					          	<optgroup style="font-size:18px;" label="Search Condition">
+					          		<option value="must">Must</option>
+					          		<option value="mustNot">Must not</option>
+					          		<option value="should">Should</option>
+					          	</optgroup>
+					          </select>
+				          </div>
+				          <label class="control-label col-sm-5"> </label>
+				      </div>				      
+				      <div class="form-group">
+				          <label class="control-label col-sm-1">Author</label>
+				          <div class="col-sm-2">
+				          	<input class="form-control" type="text" ng-model = "model.author"/>
+				          </div>
+				          <div class="col-sm-2">
+					          <select class="form-control" ng-model="model.authorSearchType">
+					          	<optgroup style="font-size:18px;" label="Search Type">
+					          		<option value="regular">Regular</option>
+					          		<option value="fuzzy">Fuzzy</option>
+					          		<option value="phrase">Phrase</option>
+					          		<option value="range">Range</option>
+					          		<option value="prefix">Prefix</option>
+					          	</optgroup>
+					          </select>
+					      </div>
+					      <div class="col-sm-2">
+					          <select class="form-control" ng-model="model.authorSearchCondition">
+					          	<optgroup style="font-size:18px;" label="Search Condition">
+					          		<option value="must">Must</option>
+					          		<option value="mustNot">Must not</option>
+					          		<option value="should">Should</option>
+					          	</optgroup>
+					          </select>
+				          </div>
+				           <label class="control-label col-sm-5"> </label>
+				      </div>
+				      
+				       <div class="form-group">
+				          <label class="control-label col-sm-1">Date</label>
+				           <div class="col-sm-2">
+				          	<input class="form-control" type="text" ng-model="model.publishingDate"/>
+				          </div>
+				          <div class="col-sm-2">
+					          <select class="form-control" ng-model="model.dateSearchType">
+					          	<optgroup style="font-size:18px;" label="Search Type">
+					          		<option value="regular">Regular</option>
+					          		<option value="fuzzy">Fuzzy</option>
+					          		<option value="phrase">Phrase</option>
+					          		<option value="range">Range</option>
+					          		<option value="prefix">Prefix</option>
+					          	</optgroup>
+					          </select>
+				          </div>
+				          <div class="col-sm-2">
+					          <select class="form-control" ng-model="model.dateSearchCondition">
+					          	<optgroup style="font-size:18px;" label="Search Condition">
+					          		<option value="must">Must</option>
+					          		<option value="mustNot">Must not</option>
+					          		<option value="should">Should</option>
+					          	</optgroup>
+					          </select>
+					       </div>  
+					        <label class="control-label col-sm-5"> </label>  
+				      </div>
+				      
+				      <div class="form-group">
+				          <label class="control-label col-sm-1">Apstract</label>
+				          <div class="col-sm-2">
+				          	<input class="form-control" type="text" ng-model = "model.apstract"/>
+				          </div>
+				          <div class="col-sm-2">	
+					          <select class="form-control" ng-model="model.apstractSearchType">
+					          	<optgroup style="font-size:18px;" label="Search Type">
+					          		<option value="regular">Regular</option>
+					          		<option value="fuzzy">Fuzzy</option>
+					          		<option value="phrase">Phrase</option>
+					          		<option value="range">Range</option>
+					          		<option value="prefix">Prefix</option>
+					          	</optgroup>
+					          </select>
+				          </div>
+				          <div class="col-sm-2">
+					          <select class="form-control" ng-model="model.apstractSearchCondition">
+					          	<optgroup style="font-size:18px;" label="Search Condition">
+					          		<option value="must">Must</option>
+					          		<option value="mustNot">Must not</option>
+					          		<option value="should">Should</option>
+					          	</optgroup>
+					          </select>
+				          </div>
+				           <label class="control-label col-sm-5"> </label>
+				      </div>
+				      
+				      <div class="form-group">
+				      	  <label class="control-label col-sm-1">Text</label>
+				          <div class="col-sm-2">
+				          	<input class="form-control" type="text" ng-model = "model.text"/>
+				          </div>
+				          <div class="col-sm-2">	
+					          <select class="form-control" ng-model="model.textSearchType">
+					          	<optgroup style="font-size:18px;" label="Search Type">
+					          		<option value="regular">Regular</option>
+					          		<option value="fuzzy">Fuzzy</option>
+					          		<option value="phrase">Phrase</option>
+					          		<option value="range">Range</option>
+					          		<option value="prefix">Prefix</option>
+					          	</optgroup>
+					          </select>
+					      </div>
+					      <div class="col-sm-2">    
+					          <select class="form-control" ng-model="model.textSearchCondition">
+					          	<optgroup style="font-size:18px;" label="Search Condition">
+					          		<option value="must">Must</option>
+					          		<option value="mustNot">Must not</option>
+					          		<option value="should">Should</option>
+					          	</optgroup>
+					          </select>
+				          </div>
+				           <label class="control-label col-sm-5"> </label>
+				      </div>
+				      
+				      <div class="form-group">
+				          <label class="control-label col-sm-1">Category</label>
+				          <div class="col-sm-2">
+				          	<input class="form-control" type="text" ng-model = "model.category"/>
+				          </div>
+				          <div class="col-sm-2">
+					          <select class="form-control" ng-model="model.categorySearchType">
+					          	<optgroup style="font-size:18px;" label="Search Type">
+					          		<option value="regular">Regular</option>
+					          		<option value="fuzzy">Fuzzy</option>
+					          		<option value="phrase">Phrase</option>
+					          		<option value="range">Range</option>
+					          		<option value="prefix">Prefix</option>
+					          	</optgroup>
+					          </select>
+				          </div>
+				          <div class="col-sm-2">
+					          <select class="form-control" ng-model="model.categorySearchCondition">
+					          	<optgroup style="font-size:18px;" label="Search Condition">
+					          		<option value="must">Must</option>
+					          		<option value="mustNot">Must not</option>
+					          		<option value="should">Should</option>
+					          	</optgroup>
+					          </select>
+				          </div>
+				           <label class="control-label col-sm-5"> </label>
+				      </div>
+				      
+				      <div class="form-group">
+				     	 <div class="col-sm-2"> 
+				      		<button class="btn btn-success" type="submit">Search</button>
+				      	 </div>
+				      </div>
+				  </form>
+				  </div>
+				  <br><br>
+				  <div ng-show="ready == true" class="row"> 
+				  <h2> Results: </h2><br>
+					  <div class="table-responsive">
+					              <table class="table" style="border: 1px groove; border-color:#F7F7F7"">
+					                   <thead>
+					                     <tr style="background-color:#96C2EE">
+					                        <td align="center"><b>Naslov</b></td>					                                                                  
+					                        <td align="center"><b>Highlight</b></td>    
+					                        <td></td>                                         
+					                     </tr>
+					                   </thead>
+					                   <tbody>
+					                     <tr data-ng-repeat="doc in resultDocs">
+					                         <td align="center">{{doc.title}}</td>					                       
+					                         <td align="center" ng-bind-html="doc.highlight"></td>
+					                         <td align="center"><a ui-sref="textPage" ng-click="readText(doc)"><u>Read</u></a></td>
+					                     </tr>                
+					                   </tbody>
+					             </table>                  
+					  	 </div>
+					</div>
+					
+					<div ng-show="showSuggestions == true" class="row"> 
+				     <h2> Did you mean this? </h2><br>
+					  <div class="table-responsive">
+					              <table class="table" style="border: 1px groove; border-color:#F7F7F7"">
+					                   <thead>
+					                     <tr style="background-color:#96C2EE">
+					                        <td align="center"><b>Field</b></td>                                                  
+					                        <td align="center"><b>Value</b></td>    
+					                        <td align="center"><b>Search link</b></td>                                         
+					                     </tr>
+					                   </thead>
+					                   <tbody>
+					                     <tr data-ng-repeat="highlight in highlights">
+					                         <td align="center">{{highlight.fieldName}}</td>
+					                         <td align="center">{{highlight.value}}</td>
+					                         <td align="center"><a ng-click="moreSearch(highlight.value)">Search</a></td>
+					                     </tr>                
+					                   </tbody>
+					             </table>                  
+					  	 </div>
+					</div>
+				</div>
+            </div>
+      </div>
+</div>
